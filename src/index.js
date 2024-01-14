@@ -46,7 +46,7 @@ for (const file of commandFiles) {
   }
 }
 
-const Pix = new EasyPix({apiKey: process.env.ASAAS_API_KEY});
+const Pix = new EasyPix({apiKey: process.env.ASAAS_API_KEY, useSandbox: false});
 
 Pix.onPaid(async (id, metadata) => {
   await payment.create(metadata.user_id, metadata.value,`DEPOSIT`);
