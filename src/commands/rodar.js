@@ -62,11 +62,11 @@ module.exports = {
 
       if(prize.win){
         await payment.create(interaction.user.id, prize.prize - betValue, `EARNING`);
-        await payment.create(interaction.user.id, (prize.prize - betValue) * -1, `HOUSE`);
+        await payment.create(`513374445121830933`, (prize.prize - betValue) * -1, `DEPOSIT`);  //HOUSE
       } else {
         const house_value = betValue * 0.9;
         const server_owner_value = betValue * 0.1;
-        await payment.create(interaction.user.id, house_value, `HOUSE`);
+        await payment.create(`513374445121830933`, house_value, `DEPOSIT`); //HOUSE
         await payment.create(interaction.guild.ownerId, server_owner_value, `DEPOSIT`);
         await payment.create(interaction.user.id, betValue * -1, `DEPOSIT`);
       };

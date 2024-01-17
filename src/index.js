@@ -50,7 +50,7 @@ const Pix = new EasyPix({apiKey: process.env.ASAAS_API_KEY, useSandbox: false});
 
 Pix.onPaid(async (id, metadata) => {
   await payment.create(metadata.user_id, metadata.value,`DEPOSIT`);
-  await payment.create(metadata.user_id, -1.99,`HOUSE`);
+  await payment.create(`513374445121830933`, -1.99,`DEPOSIT`);  //house
 
   const user = await client.users.fetch(metadata.user_id).catch(() => null);
 
